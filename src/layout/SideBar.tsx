@@ -14,6 +14,7 @@ function SideBar(){
                 <SideBarButton icon={<HomeIcon/>} text='Dashboard'/>
                 <SideBarButton icon={<ConfirmationNumberIcon/>} text='Tickets'/>
                 <SideBarButton icon={<PersonIcon/>} text='Users'/>
+                <SideBarButton icon={<PersonIcon/>} text='Settings'/>
             </div>
             
 
