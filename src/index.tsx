@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Application from './Application';
-import SideBar from './layout/SideBar';
+import SideBar from './layout/sidebar/SideBar';
 import ContentScreen from './layout/ContentScreen';
 import Users from './Pages/Users';
 import ContentWrapper from './layout/ContentWrapper';
@@ -12,29 +12,37 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard';
 import NavBar from './layout/NavBar';
 import Display from './layout/Display';
+import Tickets from './Pages/Tickets';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
+const Content = () => {
+
+  return(
     <Application>
       <NavBar/>
       <Display>
         <SideBar/>
         <ContentScreen>
           <ContentWrapper>
-            <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Dashboard/>}/>
+                <Route path="/dashboard" element={<Dashboard/>}/>
                 <Route path="users" element={<Users/>}/>
+                <Route path="tickets" element={<Tickets/>}/>
               </Routes>
-            </BrowserRouter>
           </ContentWrapper>
         </ContentScreen>
       </Display>
-      
     </Application>
+  );
+}
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Content/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
