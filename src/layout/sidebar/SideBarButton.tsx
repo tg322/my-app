@@ -26,4 +26,4 @@ function SideBarButton(props: ISideBarButtonProps){
         </div>
     )
 }
-export default SideBarButton
+export default React.memo(SideBarButton)

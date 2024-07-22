@@ -23,4 +23,4 @@ function SideBarButtonDropDownWrapper(props: ISideBarButtonProps){
         </div>
     )
 }
-export default SideBarButtonDropDownWrapper
+export default React.memo(SideBarButtonDropDownWrapper)

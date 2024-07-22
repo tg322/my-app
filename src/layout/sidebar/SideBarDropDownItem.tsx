@@ -24,4 +24,4 @@ function SideBarDropDownItem(props: ISideBarButtonProps){
         </div>
     )
 }
-export default SideBarDropDownItem
+export default React.memo(SideBarDropDownItem)
