@@ -33,4 +33,4 @@ function SideBar(){
         </div>
     );
 }
-export default SideBar;
+export default React.memo(SideBar);
