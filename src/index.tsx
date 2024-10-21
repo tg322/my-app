@@ -8,14 +8,14 @@ import SideBar from './layout/sidebar/SideBar';
 import ContentScreen from './layout/ContentScreen';
 import Users from './Pages/Users';
 import ContentWrapper from './layout/ContentWrapper';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard';
 import NavBar from './layout/NavBar';
 import Display from './layout/Display';
 import Tickets from './Pages/Tickets';
+import Login from './Pages/Login';
 
-const Content = () => {
-
+const Layout = () => {
   return(
     <Application>
       <NavBar/>
@@ -23,15 +23,27 @@ const Content = () => {
         <SideBar/>
         <ContentScreen>
           <ContentWrapper>
-              <Routes>
-                <Route path="/dashboard" element={<Dashboard/>}/>
-                <Route path="users" element={<Users/>}/>
-                <Route path="tickets" element={<Tickets/>}/>
-              </Routes>
+              <Outlet/>
           </ContentWrapper>
         </ContentScreen>
       </Display>
     </Application>
+  );
+}
+
+const AppRoutes = () => {
+
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/users" element={<Users/>}/>
+          <Route path="/tickets" element={<Tickets/>}/>
+        </Route>
+        <Route path="/login" element={<Login/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
@@ -40,9 +52,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Content/>
-    </BrowserRouter>
+    <AppRoutes/>
   </React.StrictMode>
 );
 
